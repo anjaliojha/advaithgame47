@@ -7,17 +7,20 @@ var treasure3Image,treasure4Image;
 
 
 function preload(){
-groundImage = loadImage("Road.png");
-thiefImage = loadAnimation("Runner-1.png","Runner-2.png");
-policeImage = loadImage("car1.png");
-treasure1Image =loadImage("treas1.png");
-treasure2Image =loadImage("treasure2.jpg");
-treasure3Image =loadImage("treas3.png");
-treasure4Image =loadImage("treas4.png");
+groundImage = loadImage("images/Road.png");
+
+thiefImage = loadAnimation("images/Runner-1.png","images/Runner-2.png");
+policeImage = loadImage("images/car1.png");
+
+treasure1Image =loadImage("images/treas1.png");
+treasure3Image =loadImage("images/treas3.png");
+treasure4Image =loadImage("images/treas4.png");
+
 }
 
 function setup(){
  createCanvas(600,800);
+
 ground=createSprite(300,300);
 ground.addImage("ground",groundImage);
 
@@ -54,7 +57,7 @@ function spawnObstacles(){
      obstacles=createSprite(300,0,20,20);
      obstacles.velocityY=2;
     rand = Math.round(random(1,4));
-   switch(rand){
+   /*switch(rand){
      case 1:obstacles.addImage(obstacleImage);
      break;
      case 2:obstacles.addImage(obtstacleImage2);
@@ -63,7 +66,7 @@ function spawnObstacles(){
      break;
      case 4:obstacles.addImage(obstacleImage4);
      break;
-   }
+   }*/
     }
 
 }
@@ -72,16 +75,19 @@ function spawnTreasure(){
    treasure=createSprite(thief.x,thief.y,20,20);
    treasure.shapeColor="yellow"
    treasure.velocityY=2;
-   ran = Math.round(random(1,4));
+   ran = Math.round(random(1,3));
    switch(ran){
      case 1:treasure.addImage(treasure1Image);
+     
      break;
-     case 2:treasure.addImage(treasure2Image);
-     break;
+     
      case 3:treasure.addImage(treasure3Image);
+     
      break;
-     case 4:treasure.addImage(treasure4Image);
+     case 2:treasure.addImage(treasure4Image);
+    
      break;
    }
+   treasure.scale=0.2;
   }
 }
